@@ -1,0 +1,153 @@
+<body>
+<!-- Intro Header -->
+<header class="intro">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="brand-heading">Projekt Rochla</h1>
+                    <p class="intro-text">Temporary, ready to use Windows machines in minutes!</p>
+
+                    <p>
+                        <a href="#start" class="btn btn-default btn-lg page-scroll">
+                            <i class="fa fa-play-circle"/></i> Start Now!
+                        </a>
+                    </p>
+                    <a href="#about" class="btn btn-circle page-scroll">
+                        <i class="fa fa-angle-double-down animated"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- About Section -->
+<section id="about" class="container content-section">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>About Projekt Rochla</h2>
+            <p>Projekt Rochla gives you a temporary Windows machines within a minute.
+                The machine is ready to use, so you can try out immediately what you want.
+                You have full admin rights on the machine. Go wild!</p>
+            <p>If you have a <a href="https://turbo.net">Turbo.Net</a> account, Great!
+                Projekt Rochla will fetch you're favorites app from turbo.net.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Download Section -->
+<section id="start" class="content-section text-center">
+    <div class="start-section">
+        <div class="container">
+            <div class="col-lg-8 col-lg-offset-2">
+
+                <form id="start-form" class="form-horizontal" method="post" action="/create">
+                    <h2>Get Started</h2>
+                    <p>
+                        The machine will have <a href="https://chocolatey.org/">Chocolatey</a> and
+                        <a href="https://www.mozilla.org/en-US/firefox">Firefox</a> preinstalled for convinience.
+                        You'll have full admin rights on this machine. You can install any application you want.
+                    </p>
+                    <p>
+                        <button id="launch-button-1"
+                                class="btn btn-default btn-lg"
+                                type="submit">
+                            Launch Now
+                        </button>
+                    </p>
+                    <h3>Using Turbo.net?</h3>
+                    <p>We can prepare your Turbo.net apps for you. So that their immediately ready to use.
+                        You need to provide an API key, which you can find in your
+                        <a target="_blank" href="https://turbo.net/account/api-keys">Turbo.net Account's Settings</a>.
+                        Create a new one for Projekt Rochla. You remoke it to withdraw access.
+                        We don't store the API key permanently.</p>
+                    <div class="form-group">
+                        <label for="api-key" class="col-sm-2 control-label">Api Key</label>
+                        <div class="col-sm-10">
+                            <input class="form-control"
+                                   id="api-key"
+                                   name="api-key"
+                                   placeholder="Api Key"
+                            >
+                            <span class="help-block">Used to download and prepare your applications</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <label>
+                                <input type="checkbox"
+                                       name="my-apps"
+                                       value="my-apps"
+                                       checked>
+                                Download and install my apps
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="images-list" class="col-sm-2 control-label">Start Images</label>
+                        <div class="col-sm-10">
+                            <textarea
+                                    class="form-control"
+                                    rows="3"
+                                    id="images-list"
+                                    name="images-list"
+                                    placeholder="mozilla/firefox"></textarea>
+                            <span class="help-block">Optional images to start immediately</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button id="launch-button-2"
+                                    class="btn btn-default btn-lg"
+                                    type="submit">
+                                Launch Now
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="container content-section">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>Contact</h2>
+            <p><a href="mailto:roman.stoffel@gamlor.info">roman.stoffel@gamlor.info</a>
+            </p>
+            <ul class="list-inline banner-social-buttons">
+                <li>
+                    <a href="https://twitter.com/GamlerHart" class="btn btn-default btn-lg"><i
+                            class="fa fa-twitter fa-fw"></i> <span class="network-name">@GamlerHart</span></a>
+                </li>
+                <li>
+                    <a href="https://github.com/gamlerhart" class="btn btn-default btn-lg"><i
+                            class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section id="source" class="container content-section">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>Source-Code</h2>
+            <p>The source code for this project is hosted on GitHub under the Apache2 license. TODO</p>
+            <h3>Thanks</h3>
+            <p>Thanks to all these awesome open source work, which enabled this project:</p>
+            <ul>
+                <li><a href="http://guac-dev.org/">Guacamole</a>: Remote desktop protocol implementations. Apache 2.0 License</li>
+                <li><a href="http://clojure.org/">Clojure</a>: Awesome Programming Language</li>
+                <li><a href="http://www.eclipse.org/jetty/">Jetty</a>: A flexible, embeddable web server</li>
+                <li><a href="http://startbootstrap.com/">startbootstrap.com/</a>: Awesome bootstrap templates Apache 2.0 License</li>
+                <li><a href="https://github.com/mcohen01/amazonica">Michael Cohen's Amazonica</a> AWS Api wrapper
+                    library
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+</body>
