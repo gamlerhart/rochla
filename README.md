@@ -2,7 +2,8 @@
 Original goal: Learn Clojure =). Do something fun with it.
 
 Gives a website, which hands our ready to use Windows boxes in a minute.
-The gives you RDP access right on the website
+The gives you RDP access right on the website.
+
 
 
 # Run, via docker
