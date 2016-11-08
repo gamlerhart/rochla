@@ -7,7 +7,8 @@
   :machine-park the atom referencing machines
   }"
   (:require [clojure.string :as str]
-            [clojure.java.io :as io])
+            [clojure.java.io :as io]
+            [clojure.tools.logging :as log])
   (:import (java.util UUID)
            (org.joda.time DateTime)
            (java.time LocalDateTime ZoneId)))
@@ -333,6 +334,7 @@
              (apply dissoc (cons machines old-ids))
              ))
     (doseq [o old-boxes]
+      (log/info "terminating machines " (:id o))
       (terminate-machine (:controller app) (:machine o)))
     (count old-boxes)
     )
