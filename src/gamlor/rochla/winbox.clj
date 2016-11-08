@@ -88,7 +88,16 @@
         app (create-app config aws)
         ]
     (log/info "Start with config " config)
-    (.schedule scheduler ^Runnable (fn [] (p/terminate-old-boxes app)) 10 TimeUnit/MINUTES)
+    (.scheduleAtFixedRate
+      scheduler ^Runnable
+    (fn []
+      (log/info "Maintenance Loop started")
+      (p/terminate-old-boxes app)
+      (log/info "Old boxes terminated")
+      (p/reserve-machine app)
+      (log/info "Allocated new machines if needed")
+      )
+      5 5 TimeUnit/MINUTES)
     (p/reserve-machine app)
     (start-app-server app))
   )
