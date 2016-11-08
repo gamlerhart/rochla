@@ -133,6 +133,9 @@
           )
         )
       )
+    (GET "/api/info/location" []
+      (rest/response (-> app :config :location))
+      )
     (context "/session" []
       (GET "/status" request
         (if-let [session (session request)]
