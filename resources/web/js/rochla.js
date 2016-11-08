@@ -189,7 +189,8 @@ var States = {
 
             function updateTimeout(){
                 var now = new Date();
-                var difference = new Date(machineStoppedIn.getTime() - now.getTime());
+                var differenceTS = Math.max(0, machineStoppedIn.getTime() - now.getTime())
+                var difference = new Date(differenceTS);
                 var mins = difference.getMinutes();
 
                 var infoContent = $('<span/>');
