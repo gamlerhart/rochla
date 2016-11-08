@@ -32,7 +32,7 @@
       (.setParameter "port" "3389")
       (.setParameter "username" user)
       (.setParameter "password" password)
-      (.setParameter "security" "any")
+      (.setParameter "security" "nla")
       (.setParameter "ignore-cert" "true"))
     cfg)
   )
