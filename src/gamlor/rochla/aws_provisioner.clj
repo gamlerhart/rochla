@@ -146,7 +146,7 @@
 
 
 (defn update-tags [cred machine tags]
-  (ec2/create-tags cred {:resources [machine] :tags (map-to-tags tags)})
+  (ec2/create-tags cred {:resources [(:id machine)] :tags (map-to-tags tags)})
   )
 
 
