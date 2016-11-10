@@ -71,7 +71,7 @@
 
 (deftest user-name-length-is-below-20
   (let [pwds (repeatedly 100 p/new-user-name)]
-    (is (not (first (filter #(< 20 (count %)) pwds)))))
+    (is (not (first (filter #(< 16 (count %)) pwds)))))
   )
 
 (deftest when-machines-left-give-one-out

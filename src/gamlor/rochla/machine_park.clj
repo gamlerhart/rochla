@@ -15,8 +15,8 @@
 
 (def max-machines 5)
 
-(def adjectives ["Adorable" "Elegant", "Glamorous", "Mysterious" "Delightful" "Witty" "Brave", "Clever"])
-(def animals ["Rabbit", "Koala", "Kiwi", "Dolphin", "Hamster", "Fox", "Ibex", "Otter", "Owl"])
+(def adjectives ["Shiny" "Bright", "Funny", "Fine" "Fast" "Witty" "Brave", "Clever", "Neat", "Nice"])
+(def animals ["Frog", "Koala", "Kiwi", "Seal", "Tiger", "Fox", "Ibex", "Otter", "Owl"])
 (def verb ["eat", "make", "see", "give", "try", "need", "find"])
 (def measure ["bowl", "basket", "plates", "pound", "kilo", "boxes", "crates"])
 (def object ["Pasta", "Sushi", "Steak", "Cake", "Taco"])
@@ -304,7 +304,7 @@
                                                   (start-for-use app (:id machine))
                                                   {:session-state :preparing})
       :else (merge {:session-state :running}
-                   {:expiration-time (str (:expiration-time machine))}
+                   {:expiration-time (str (:expiration-time machine) "+00:00")}
                    {:location (str (-> app :config :location))}
                    native-status)
       )
