@@ -19,7 +19,7 @@
 (def animals ["Rabbit", "Koala", "Kiwi", "Dolphin", "Hamster", "Fox", "Ibex", "Otter", "Owl"])
 (def verb ["eat", "make", "see", "give", "try", "need", "find"])
 (def measure ["bowl", "basket", "plates", "pound", "kilo", "boxes", "crates"])
-(def object ["Pasta", "Pancake", "Burgers", "Cake", "Taco"])
+(def object ["Pasta", "Sushi", "Steak", "Cake", "Taco"])
 
 (def ^ZoneId utc (ZoneId/of "UTC"))
 
@@ -31,7 +31,7 @@
   "No, this doesn't pass any serious password generation. Tiny, tiny pool of entropy. But it should be FUN.
   It is also put into AWS meta data at the moment, so not a secret. Anyway...it's a throw away machine"
   []
-  (str (+ 1 (rand-int 19)) "-" (rand-nth animals) "s-" (rand-nth verb) "-" (+ 1 (rand-int 19)) "-" (rand-nth measure) "-of-" (rand-nth object)))
+  (str (+ 1 (rand-int 19)) "-" (rand-nth animals) "s-" (rand-nth verb) "-" (+ 1 (rand-int 19)) "-" (rand-nth measure) "-" (rand-nth object)))
 
 (def start-instance-script-template (slurp (io/resource "scripts/start-new-instance.template.ps1")))
 (def user-init-script-template (slurp (io/resource "scripts/user-init.template.ps1")))

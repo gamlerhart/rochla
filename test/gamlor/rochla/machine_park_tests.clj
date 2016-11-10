@@ -34,11 +34,11 @@
   ([reserve-time]
    (let [id (str (UUID/randomUUID))]
      {id {
-          :id           id
-          :for-session  (str (UUID/randomUUID))
-          :reserve-time reserve-time
+          :id              id
+          :for-session     (str (UUID/randomUUID))
+          :reserve-time    reserve-time
           :expiration-time (.plusHours reserve-time 1)
-          :machine      {:id (str "i-" (UUID/randomUUID))}
+          :machine         {:id (str "i-" (UUID/randomUUID))}
           }}))
   ([] (reserved-test-machine (LocalDateTime/now p/utc))))
 
@@ -63,6 +63,17 @@
 (def session3 (str (UUID/randomUUID)))
 
 
+(deftest password-length-is-below-32
+  (let [pwds (repeatedly 100 p/new-password)]
+    (is (not (first (filter #(< 64 (count %) ) pwds)))))
+  )
+
+
+(deftest user-name-length-is-below-20
+  (let [pwds (repeatedly 100 p/new-user-name)]
+    (is (not (first (filter #(< 20 (count %)) pwds)))))
+  )
+
 (deftest when-machines-left-give-one-out
   (p/reserve-machine *app*)
   (is (= session (:for-session (p/machine-for-session *app* session {}))))
@@ -74,12 +85,12 @@
   (is (= session (:for-session (p/existing-for-session *app* session))))
   )
 (deftest reserving-a-machine-allocates-new-one
-     (p/reserve-machine *app*)
-     (:for-session (p/machine-for-session *app* session {}))
-     (is (= 2 (p/count-machines *app*)))
-     (:for-session (p/machine-for-session *app* session2 {}))
-     (is (= 3 (p/count-machines *app*)))
-     )
+  (p/reserve-machine *app*)
+  (:for-session (p/machine-for-session *app* session {}))
+  (is (= 2 (p/count-machines *app*)))
+  (:for-session (p/machine-for-session *app* session2 {}))
+  (is (= 3 (p/count-machines *app*)))
+  )
 (deftest finding-existing-session-does-not-allocate
   (p/reserve-machine *app*)
   (:for-session (p/machine-for-session *app* session {}))
@@ -214,7 +225,7 @@
 
 (deftest builds-script-according-to-user-request
   (are [expected request]
-    (= expected (let [r (p/extend-script-with-user-wishes "base-script" request)] (println "\n\n\n" r) r))
+    (= expected (let [r (p/extend-script-with-user-wishes "base-script" request)] r))
     "base-script" {}
     "base-script\nturbo login --api-key=abcde\nxcopy $env:APPDATA\"\\Microsoft\\Windows\\Start Menu\\Programs\\Turbo.net\" $env:USERPROFILE\\DESKTOP\\"
     {:turbo-api-key "abcde"}
